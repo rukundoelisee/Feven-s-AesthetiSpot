@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feven's AesthetiSpot | Luxury Skin Care Clinic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+        
+        .heading-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 118, 110, 0.75), rgba(15, 118, 110, 0.85)), 
+                              url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-up {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        
+        .slide-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card, .gallery-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:hover, .gallery-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px -15px rgb(15 118 110 / 0.3);
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #14B8A6;
+            transform: translateY(-2px);
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800 overflow-x-hidden">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-5 md:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <img src="logo.png" alt="Feven's AesthetiSpot Logo" class="logo-img">
+                    <div class="leading-tight">
+                        <span class="heading-font text-2xl font-bold text-teal-700">Feven's</span>
+                        <span class="heading-font text-2xl font-bold text-gray-800">AesthetiSpot</span>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#home" class="nav-link">HOME</a>
+                    <a href="#about" class="nav-link">ABOUT</a>
+                    <a href="#services" class="nav-link">SERVICES</a>
+                    <a href="#treatments" class="nav-link">TREATMENTS</a>
+                    <a href="#results" class="nav-link">RESULTS</a>
+                    <a href="#contact" class="nav-link">CONTACT</a>
+                </div>
+
+                <a href="tel:07888888888" class="hidden sm:flex items-center gap-2 bg-teal-600 text-white px-5 py-3 rounded-2xl font-semibold hover:bg-teal-700 transition">
+                    <i class="fa-solid fa-phone"></i>
+                    <span class="hidden md:inline">07888 888 888</span>
+                </a>
+
+                <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-teal-700">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t py-6 px-6">
+            <div class="flex flex-col gap-6 text-lg">
+                <a href="#home" onclick="toggleMobileMenu()" class="nav-link">Home</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="nav-link">About</a>
+                <a href="#services" onclick="toggleMobileMenu()" class="nav-link">Services</a>
+                <a href="#treatments" onclick="toggleMobileMenu()" class="nav-link">Treatments</a>
+                <a href="#results" onclick="toggleMobileMenu()" class="nav-link">Real Results</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="hero-bg min-h-screen flex items-center text-white relative">
+        <div class="max-w-7xl mx-auto px-5 md:px-8 pt-20 pb-16">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-5 py-2.5 rounded-full mb-6">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span class="text-sm font-medium tracking-widest">KG 200 ST, KIGALI, RWANDA</span>
+                </div>
+                
+                <h1 class="heading-font text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 fade-in">
+                    LUXURY CARE<br>FOR YOUR <span class="text-teal-300">SKIN</span>
+                </h1>
+                <p class="text-lg md:text-xl lg:text-2xl mb-10 text-white/90 fade-in">
+                    Premium aesthetic &amp; dermatological treatments in a serene environment
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 fade-in">
+                    <a href="#contact" class="bg-white text-teal-700 px-8 py-4 rounded-2xl font-semibold text-lg text-center hover:bg-teal-50 transition">
+                        BOOK APPOINTMENT
+                    </a>
+                    <a href="#results" class="border-2 border-white px-8 py-4 rounded-2xl font-semibold text-lg text-center hover:bg-white/10 transition">
+                        VIEW RESULTS
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                <div class="fade-in">
+                    <span class="uppercase text-teal-600 font-semibold tracking-widest">Kigali, Rwanda</span>
+                    <h2 class="heading-font text-4xl md:text-5xl font-bold mt-4 mb-6 leading-tight">
+                        Where Science Meets Luxury Skincare
+                    </h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        At Feven’s AesthetiSpot, we combine advanced medical technology with luxurious care to deliver exceptional skin results.
+                    </p>
+                </div>
+                <div class="rounded-3xl overflow-hidden shadow-2xl fade-in">
+                    <img src="about-clinic.jpg" alt="Clinic Interior" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-16 md:py-24 bg-teal-50">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="heading-font text-4xl md:text-5xl font-bold">We Treat</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="service-card bg-white p-6 md:p-8 rounded-3xl shadow-xl fade-in"> 
+                    <div class="text-5xl mb-6">🦠</div>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-3">Skin Infections</h3>
+                    <p class="text-gray-600">Professional treatment for bacterial, fungal & viral skin conditions.</p>
+                </div>
+                <div class="service-card bg-white p-6 md:p-8 rounded-3xl shadow-xl fade-in"> 
+                    <div class="text-5xl mb-6">🌟</div>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-3">Pigmentation</h3>
+                    <p class="text-gray-600">Effective solutions for dark spots, melasma & uneven skin tone.</p>
+                </div>
+                <div class="service-card bg-white p-6 md:p-8 rounded-3xl shadow-xl fade-in"> 
+                    <div class="text-5xl mb-6">🛡️</div>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-3">Skin Cancer</h3>
+                    <p class="text-gray-600">Early detection, screening & expert management.</p>
+                </div>
+                <div class="service-card bg-white p-6 md:p-8 rounded-3xl shadow-xl fade-in"> 
+                    <div class="text-5xl mb-6">🌸</div>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-3">Facial Dermatitis</h3>
+                    <p class="text-gray-600">Rosacea, eczema & sensitive skin care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TREATMENTS -->
+    <section id="treatments" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="fade-in">
+                    <h2 class="heading-font text-4xl md:text-5xl font-bold leading-tight">Advanced Aesthetic Treatments</h2>
+                    <div class="mt-10 space-y-8 md:space-y-10">
+                        <div class="flex gap-5 fade-in">
+                            <span class="text-4xl md:text-5xl font-light text-teal-200">01</span>
+                            <div>
+                                <h4 class="font-semibold text-lg md:text-xl">Medical Facials & Chemical Peels</h4>
+                                <p class="text-gray-600">Skin renewal and deep rejuvenation.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5 fade-in">
+                            <span class="text-4xl md:text-5xl font-light text-teal-200">02</span>
+                            <div>
+                                <h4 class="font-semibold text-lg md:text-xl">Laser Skin Therapy</h4>
+                                <p class="text-gray-600">Pigmentation, scars & anti-aging.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5 fade-in">
+                            <span class="text-4xl md:text-5xl font-light text-teal-200">03</span>
+                            <div>
+                                <h4 class="font-semibold text-lg md:text-xl">Injectables & Fillers</h4>
+                                <p class="text-gray-600">Natural-looking youthful results.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-3xl overflow-hidden shadow-2xl fade-in">
+                    <img src="treatment-room.jpg" alt="Advanced Treatment" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REAL RESULTS -->
+    <section id="results" class="py-16 md:py-24 bg-teal-50">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="heading-font text-4xl md:text-5xl font-bold">Real Results</h2>
+                <p class="text-gray-600 mt-3">See the amazing transformations</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="gallery-card bg-white rounded-3xl overflow-hidden shadow-xl fade-in">
+                    <img src="results-pigmentation.jpg" alt="Pigmentation Correction" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h4 class="font-semibold">Pigmentation Correction</h4>
+                        <p class="text-teal-600 text-sm">After 6 sessions</p>
+                        <p class="text-gray-600 text-sm mt-3">Clearer, more even skin tone achieved.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-card bg-white rounded-3xl overflow-hidden shadow-xl fade-in">
+                    <img src="results-acne.jpg" alt="Acne Scar Treatment" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h4 class="font-semibold">Acne Scar Treatment</h4>
+                        <p class="text-teal-600 text-sm">After 4 sessions</p>
+                        <p class="text-gray-600 text-sm mt-3">Smoother skin and renewed confidence.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-card bg-white rounded-3xl overflow-hidden shadow-xl fade-in">
+                    <img src="results-rejuvenation.jpg" alt="Facial Rejuvenation" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h4 class="font-semibold">Facial Rejuvenation</h4>
+                        <p class="text-teal-600 text-sm">After combined treatment</p>
+                        <p class="text-gray-600 text-sm mt-3">Youthful glow and reduced wrinkles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-16 md:py-24 bg-gradient-to-br from-teal-700 to-teal-900 text-white">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
+                <div class="fade-in">
+                    <h2 class="heading-font text-4xl md:text-5xl font-bold mb-8">Visit or Contact Us</h2>
+                    <div class="space-y-8">
+                        <div class="flex items-center gap-5">
+                            <i class="fa-solid fa-phone text-3xl text-teal-300"></i>
+                            <a href="tel:07888888888" class="text-2xl hover:text-teal-200">07888 888 888</a>
+                        </div>
+                        <div class="flex items-center gap-5">
+                            <i class="fa-solid fa-instagram text-3xl text-teal-300"></i>
+                            <a href="#" class="text-xl hover:text-teal-200">@fevensaesthetispot</a>
+                        </div>
+                        <div class="flex items-center gap-5">
+                            <i class="fa-solid fa-location-dot text-3xl text-teal-300"></i>
+                            <div class="text-lg">KG 200 St, Kigali, Rwanda</div>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="contactForm" onsubmit="handleSubmit(event)" class="bg-white/10 backdrop-blur-lg p-8 md:p-10 rounded-3xl fade-in">
+                    <input type="text" id="name" placeholder="Your Full Name" required class="w-full mb-6 bg-white/10 border border-white/30 rounded-2xl px-6 py-4 focus:outline-none placeholder:text-white/60">
+                    <input type="tel" id="phone" placeholder="Phone Number" required class="w-full mb-6 bg-white/10 border border-white/30 rounded-2xl px-6 py-4 focus:outline-none placeholder:text-white/60">
+                    <textarea id="message" rows="5" placeholder="Tell us how we can help you..." required class="w-full mb-8 bg-white/10 border border-white/30 rounded-3xl px-6 py-4 focus:outline-none placeholder:text-white/60"></textarea>
+                    <button type="submit" class="w-full bg-white text-teal-700 font-semibold py-5 rounded-2xl hover:bg-teal-50 transition">
+                        SEND MESSAGE
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-zinc-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-5 text-center">
+            <p class="text-sm text-gray-400">© 2026 Feven's AesthetiSpot • All Rights Reserved</p>
+            <p class="text-xs text-gray-500 mt-2">Professional Aesthetic & Dermatological Care in Kigali</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        // Form Submit
+        function handleSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            if (name) {
+                alert(`Thank you, ${name}! Your message has been received.`);
+                e.target.reset();
+            }
+        }
+
+        // Scroll Animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in, .slide-up');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            elements.forEach(el => observer.observe(el));
+        }
+
+        // Initialize
+        window.onload = function() {
+            handleScrollAnimations();
+        };
+    </script>
+</body>
+</html>
